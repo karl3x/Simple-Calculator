@@ -1,0 +1,93 @@
+.calculator-grid{
+    @include grid-center;
+    min-height: 100vh;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto), repeat(5, 100px);
+
+    button{
+        cursor: pointer;
+        font-size: 1.75rem;
+        padding: 20px 0;
+        border: 1px solid white;
+        outline: none;
+        color: white;
+        background-color: rgba(0, 0, 0, .9);
+
+        &:hover{
+            background-color: rgba(35, 35, 35, 0.75);
+        }
+    }
+    button:last-of-type{
+        background-color: $equal-btn-color;
+
+        &:hover{
+            background-color: rgba(190, 50, 70, .75);
+        }
+    }
+    .span-two{
+        grid-column: span 2;
+    }
+    .output{
+        @include flex-end-space-around(column);
+        grid-column: 1 /-1;
+        background-color: $output-bg-color;
+        height: 130px;
+        padding: 12px;
+        word-wrap: break-word;
+        word-break: break-all;
+
+        .previous-operand{
+            color: rgba(255, 255, 255, .75);
+            font-size: 1.25rem;
+        }
+
+        .current-operand{
+            color: white;
+            font-size: 2rem;
+        }
+    }
+}
+
+//MEDIA QUERIES
+//MAX-WIDTH 600px
+@include phone-only(mobile-xsm){
+    .calculator-grid{
+        grid-template-columns: repeat(4, 80px);
+        grid-template-rows: minmax(100px, auto), repeat(5, 80px);
+
+        button{
+            padding: 14px 0;
+        }
+        .output{
+            height: 120px;
+        }
+    }
+}
+//481px to 768px
+@include tablet-device(tablet-sm, tablet-md){
+    .calculator-grid{
+        grid-template-columns: repeat(4, 150px);
+        grid-template-rows: minmax(120px, auto), repeat(5, 100px);
+
+        button{
+            padding: 8px 0;
+        }
+        .output{
+            height: 85px;
+        }
+    }
+}
+//769px to 1024px
+@include small-screens(screen-sm, screen-md){
+    .calculator-grid{
+        grid-template-columns: repeat(4, 170px);
+        grid-template-rows: minmax(120px, auto), repeat(5, 100px);
+
+        button{
+            padding: 10px 0;
+        }
+        .output{
+            height: 110px;
+        }
+    }
+}

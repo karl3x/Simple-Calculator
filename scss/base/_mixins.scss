@@ -1,0 +1,39 @@
+//ADD-ONS
+//CENTER CONTENT/ITEMS
+@mixin content-center{
+    align-content: center;
+    justify-content: center;
+}
+@mixin items-center-end{
+    align-items: center;
+    justify-content: flex-end;
+}
+@mixin items-center-start{
+    align-items: center;
+    justify-content: flex-start;
+}
+@mixin items-center-space-evenly{
+    align-items: center;
+    justify-content: space-evenly;
+}
+@mixin items-center-space-between{
+    align-items: center;
+    justify-content: space-between;
+}
+
+//END CONTENT/ITEMS
+@mixin items-end-space-around{
+    align-items: flex-end;
+    justify-content: space-around;
+}
+
+//DISPLAY
+@mixin grid-center() {
+    display: grid;
+    @include content-center();
+}
+@mixin flex-end-space-around($direction){
+    display: flex;
+    @include items-end-space-around();
+    flex-direction: $direction;
+}
